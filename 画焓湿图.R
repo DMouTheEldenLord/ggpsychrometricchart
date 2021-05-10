@@ -3,7 +3,7 @@ library(ggplot2)
 
 rm(list = ls())
 
-psypath <<- "./scripts/psy" # psy文件夹的位置
+psypath <<- "./psy" # psy文件夹的位置
 scale.factor <<- 2.45 #用来调整等焓线的角度，英文推荐2.53，中文推荐2.45
 
 source(paste(psypath, "chart.R", sep = "/"), encoding = "UTF-8")
