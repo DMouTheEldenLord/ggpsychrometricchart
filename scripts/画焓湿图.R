@@ -8,7 +8,6 @@ scale.factor <<- 2.45 #用来调整等焓线的角度，英文推荐2.53，中�
 
 source(paste(psypath, "chart.R", sep = "/"), encoding = "UTF-8")
 
-#生成示例数据
 df <- read.csv("./data/template.csv")
 
 df <- mutate(df,
