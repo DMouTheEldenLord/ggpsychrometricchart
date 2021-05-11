@@ -1,3 +1,6 @@
+library(dplyr)
+
+
 cal.Pws_Ta = function(T_a){
   Ta <- T_a + 273.15
   c1 <- -5.6745359e3
@@ -31,8 +34,8 @@ cal.d_Pa = function(Pa,B=101325){
   return(d)
 }
 cal.d_Td = function(Td,B=101325){
-  Pa <- cal.Pws_Ta(Td)
-  d <- cal.d_Pa(Pa,B)
+  d <- cal.Pws_Ta(Td) %>% 
+    cal.d_Pa(B)
   return(d)
 }
 cal.d_Ta.h = function(Ta, h){
@@ -40,7 +43,8 @@ cal.d_Ta.h = function(Ta, h){
   return(d)
 }
 cal.d_Ta.RH = function(Ta,RH,B=101325){
-  d <- cal.d_Pa(cal.Pa_Ta.RH(Ta, RH), B)
+  d <- cal.Pa_Ta.RH(Ta, RH) %>% 
+    cal.d_Pa(B)
   return(d)
 }
 cal.h_Ta.d = function(Ta,d){
