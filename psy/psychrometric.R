@@ -17,8 +17,10 @@ cal.Pws_Ta = function(T_a){
   c12 <- -1.4452093e-8
   c13 <- 6.5459673
   Pws <- numeric(length = length(T_a))
-  Pws[Ta < 273.15] <- exp(c1 / Ta + c2 + c3 * Ta + c4 * Ta ^ 2 + c5 * Ta ^ 3 + c6 * Ta ^ 4 + c7 * log(Ta))
-  Pws[Ta >= 273.15] <- exp(c8 / Ta + c9 + c10 * Ta + c11 * Ta ^ 2 + c12 * Ta ^ 3 + c13 * log(Ta))
+  Ta1 <- Ta[Ta < 273.15]
+  Ta2 <- Ta[Ta >= 273.15]
+  Pws[Ta < 273.15] <- exp(c1 / Ta1 + c2 + c3 * Ta1 + c4 * Ta1 ^ 2 + c5 * Ta1 ^ 3 + c6 * Ta1 ^ 4 + c7 * log(Ta1))
+  Pws[Ta >= 273.15] <- exp(c8 / Ta2 + c9 + c10 * Ta2 + c11 * Ta2 ^ 2 + c12 * Ta2 ^ 3 + c13 * log(Ta2))
   return(Pws)
 }
 cal.Pa_Ta.RH = function(Ta, RH){
